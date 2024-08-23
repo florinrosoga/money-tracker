@@ -1,25 +1,40 @@
-import { useState } from "react";
+import {useState} from "react";
 import "./App.css";
 
 function App() {
+  const [name, setName] = useState("");
+  const [datetime, setDatetime] = useState("");
+  const [description, setDescription] = useState("");
 
-  const[name,setName] = useState(initialState:'');
+  function addNewTransaction() {}
+
   return (
     <div>
       <main>
         <h1>
           $400<span>.00</span>
         </h1>
-        <form>
+        <form onSubmit={{addNewTransaction}}>
           <div className="basic">
-            <input type="text" 
-            value= {name} 
-            onChange={ev => setName(ev.target.value)}
-            placeholder={"+200 new samsungtv"} />
-            <input type="datetime-local" />
+            <input
+              type="text"
+              value={name}
+              onChange={(ev) => setName(ev.target.value)}
+              placeholder={"+200 new samsungtv"}
+            />
+            <input
+              type="datetime-local"
+              value={datetime}
+              onChange={(ev) => setDatetime(ev.target.value)}
+            />
           </div>
           <div className="description">
-            <input type="text" placeholder="description" />
+            <input
+              type="text"
+              placeholder="description"
+              value={description}
+              onChange={(ev) => setDescription(ev.target.value)}
+            />
           </div>
           <button type="submit">Add new transaction</button>
         </form>
@@ -39,7 +54,7 @@ function App() {
         <div className="transactions">
           <div className="transaction">
             <div className="left">
-              <div className="name">Gog Job New Website</div>
+              <div className="name">Gig Job New Website</div>
               <div className="description">It was time for a new TV</div>
             </div>
             <div className="right">
