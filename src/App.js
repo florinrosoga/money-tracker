@@ -13,7 +13,7 @@ function App() {
             <input type="datetime-local" />"
           </div>
           <div className="description">
-            <input type="text" />"
+            <input type="text" placeholder="description" />
           </div>
           <button type="submit">Add new transaction</button>
         </form>
