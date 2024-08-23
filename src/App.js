@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+
+  const[name,setName] = useState(initialState:'');
   return (
     <div>
       <main>
@@ -9,7 +12,10 @@ function App() {
         </h1>
         <form>
           <div className="basic">
-            <input type="text" placeholder={"+200 new samsungtv"} />
+            <input type="text" 
+            value= {name} 
+            onChange={ev => setName(ev.target.value)}
+            placeholder={"+200 new samsungtv"} />
             <input type="datetime-local" />
           </div>
           <div className="description">

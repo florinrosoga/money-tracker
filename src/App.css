@@ -49,17 +49,22 @@ form button {
 }
 
 div.transactions {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 div.transaction {
   display: flex;
   padding: 5px 0;
   justify-content: space-between;
+  border-top: 1px solid #30313d;
 }
 
 div.transaction div.name {
   font-size: 1rem;
+}
+
+div.transaction:first-child {
+  border-top: 0;
 }
 
 div.transaction div.description {
@@ -77,4 +82,9 @@ div.price.green {
 
 div.price.red {
   color: #c11;
+}
+
+div.transaction div.datetime {
+  font-size: 0.7rem;
+  color: #888;
 }
