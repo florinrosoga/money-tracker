@@ -6,15 +6,30 @@ function App() {
   const [datetime, setDatetime] = useState("");
   const [description, setDescription] = useState("");
 
-  function addNewTransaction() {}
-
+  function addNewTransaction(ev) {
+    ev.preventDefault();
+    const url = process.env.REACT_APP_API_URL;
+    console.log(url);
+    fetch(url, {
+      method: "POST",
+      headers: {"Content-type": "application/json"},
+      body: JSON.stringify({name, description, datetime}),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("result", json);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
   return (
     <div>
       <main>
         <h1>
           $400<span>.00</span>
         </h1>
-        <form onSubmit={{addNewTransaction}}>
+        <form onSubmit={addNewTransaction}>
           <div className="basic">
             <input
               type="text"
