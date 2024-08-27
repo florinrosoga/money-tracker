@@ -9,11 +9,19 @@ function App() {
   function addNewTransaction(ev) {
     ev.preventDefault();
     const url = process.env.REACT_APP_API_URL;
-    console.log(url);
+
+    const price = parseFloat(name.split(" ")[0]); // Ensure price is a number
+    const itemName = name.substring(price.length + 1).trim(); // Extract the name without the price part
+
     fetch(url, {
       method: "POST",
       headers: {"Content-type": "application/json"},
-      body: JSON.stringify({name, description, datetime}),
+      body: JSON.stringify({
+        price,
+        name: itemName,
+        description,
+        datetime,
+      }),
     })
       .then((response) => response.json())
       .then((json) => {
