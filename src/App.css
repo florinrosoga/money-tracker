@@ -56,15 +56,19 @@ div.transaction {
   display: flex;
   padding: 5px 0;
   justify-content: space-between;
-  border-top: 1px solid #30313d;
+  border-top: 1px solid #d6d8ee;
 }
 
 div.transaction div.name {
   font-size: 1rem;
 }
 
-div.transaction:first-child {
+div.transactions:first-of-type .transaction:first-of-type {
   border-top: 0;
+}
+
+div.transaction:not(:first-of-type) {
+  border-top: 1px solid #d6d8ee;
 }
 
 div.transaction div.description {
