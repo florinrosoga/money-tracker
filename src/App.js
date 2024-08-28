@@ -88,7 +88,7 @@ function App() {
                   <div className="right">
                     <div
                       className={
-                        "price" + (transaction.price < 0 ? "red" : "green")
+                        "price " + (transaction.price < 0 ? "red" : "green")
                       }>
                       {transaction.price}
                     </div>
