@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import "./App.css";
-// import {response} from "express";
 
 function App() {
   const [name, setName] = useState("");
@@ -46,11 +45,21 @@ function App() {
         console.error("Error:", error);
       });
   }
+
+  let balance = 0;
+  for (let transaction of transactions) {
+    balance = balance + transaction.price;
+  }
+  balance = balance.toFixed(2); // Ensures balance always has two decimal places
+
+  const [integerPart, fraction] = balance.split("."); // Splitting balance into integer and fraction parts
+
   return (
     <div>
       <main>
         <h1>
-          $400<span>.00</span>
+          ${integerPart}
+          <span>.{fraction}</span>
         </h1>
         <form onSubmit={addNewTransaction}>
           <div className="basic">
